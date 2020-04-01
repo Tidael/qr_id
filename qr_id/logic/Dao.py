@@ -19,7 +19,7 @@ class Dao(object):
         l = len(keys) - 1
 
         for i, key in enumerate(keys):
-            query += "`"+key+"`"
+            query += key+" "
             if i < l:
                 query += ","
         
@@ -37,8 +37,7 @@ class Dao(object):
         if number_rows >= 1 and number_columns > 1:
             result = [item for item in self.db.my_database.fetchall()]
         else:
-            result = [item[0] for item in self.db.my_database.fetchall()]
-
+            result = [item for item in self.db.my_database.fetchall()]
         return result
 
     def insert(self, table, *args, **kwargs):
@@ -94,7 +93,7 @@ class Dao(object):
 db = Database.RelDatabase()
 daoUser = Dao(db)
 conditional_query = 'username = %s '
-print(daoUser.select('usuario',conditional_query,'Password',username = 'admin'))
+print(daoUser.select('usuario',conditional_query,'*',username = 'admin'))
 
 daoUser.insert('Usuario',Username = 'admin2',Password='admin456')
 daoUser.update('Usuario',conditional_query,'admin',Password='ADMIN123')
