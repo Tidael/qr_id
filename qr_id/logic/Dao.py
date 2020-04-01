@@ -65,15 +65,13 @@ class Dao(object):
             query += "`"+key+"` = %s"
             if i < l:
                 query += ","
-            ## End if i less than 1
-        ## End for keys
+
         query += " WHERE %s" % where
 
 
         self.db.my_database.execute(query, values)
         self.db.db_connection.commit()
 
-        # Obtain rows affected
         update_rows = self.db.my_database.rowcount
  
         return update_rows
