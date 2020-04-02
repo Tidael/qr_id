@@ -6,7 +6,7 @@ import Database
 
 class Dao(object):
     """
-        Data Access Object 
+        Generic Data Access Object 
     """
     def __init__(self,db):
         self.db = db
@@ -90,6 +90,7 @@ class Dao(object):
         return delete_rows
 
 
+#Simple tests
 db = Database.RelDatabase()
 daoUser = Dao(db)
 conditional_query = 'username = %s '
