@@ -8,7 +8,7 @@ import mysql.connector
 class RelDatabase:
     """
     Class that establishes a connection to a MySQL database
-  """
+    """
 
     def __init__(self):
         self.db_connection = mysql.connector.connect(

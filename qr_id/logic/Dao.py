@@ -2,8 +2,6 @@
 # Authors: Alvaro Delgado Brenes, Felipe Guzman,
 # Isaac Touma Rodriguez
 
-import Database
-
 
 class Dao(object):
     """
@@ -88,14 +86,3 @@ class Dao(object):
         delete_rows = self.db.my_database.rowcount
 
         return delete_rows
-
-
-# Simple tests
-db = Database.RelDatabase()
-daoUser = Dao(db)
-conditional_query = 'username = %s '
-print(daoUser.select('usuario', conditional_query, '*', username='admin'))
-
-daoUser.insert('Usuario', Username='admin2', Password='admin456')
-daoUser.update('Usuario', conditional_query, 'admin', Password='ADMIN123')
-daoUser.delete('Usuario', conditional_query, 'admin2')
